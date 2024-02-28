@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    {% include 'cdnlines.html' %}
+  </head>
+  <body>
+    {% include 'navbar.html' %}
+    <h1 class="text-center"> curd employee Data</h1>
+    <div class="containe-fluid">
+    <div class="row">
+      <div class="offset-md-3 col-md-4">
+        <div class="text-right">
+          <a href="#" class="btn btn-success">Add curd Data</a>
+
+        </div>
+        {% if abc %}
+        <table class="table table-bordered text-white">
+          <thead class="bg-warning text-white">
+            <tr>
+              <th>name</th>
+              <th>date</th>
+              <th>relation</th>
+              <th>mobile</th>
+              <th>professional</th>
+              <th>comment</th>
+              <th>action</th>
+            </tr>
+          </thead>
+          <tbody class="bg-primary text-white">
+            {% for i in abc %}
+            <tr>
+              <td>{{i.name}}</td>
+              <td>{{i.date}}</td>
+              <td>{{i.relation}}</td>
+              <td>{{i.mobile}}</td>
+              <td>{{i.professional}}</td>
+              <td>{{i.comment}}</td>
+              <td>
+              <a href="{% url 'update' i.id  %}" class="btn btn-danger">update</a>
+              <a href="{% url 'delete' i.id %}" class="btn btn-dark">delete</a>
+            </td>
+
+            </tr>
+            {% endfor %}
+          </tbody>
+
+          </table>
+
+          {% else %}
+          <h3 class="text-center"> curd DAta not Available</h3>
+
+
+        {% endif %}
+
+      </div>
+
+    </div>
+
+    </div>
+
+  </body>
+</html>
